@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var miarray=[];
+        var contador=0;
+
+        while(contador<5)
+        {
+            var num=prompt("Ingrese un numero:");
+            miarray[contador]=parseInt(num);
+            contador++;
+        }
+
+        for(var i=0; i<5; i++)
+        {
+            document.write("Numero en la posicion: " + i + " Es: " + miarray[i] + "</br>");
+        }
+
+        document.write("</br> Metodo de burbuja: </br>");
+
+        for(var i=1; i<miarray.length; i++)
+        {
+            for(var j=0; j< miarray.length-1; j++)
+            {
+                if(miarray[j]<miarray[j+1])
+                {
+                    var temp=parseInt(miarray[j+1]);
+                    miarray[j+1]=parseInt(miarray[j]);
+                    miarray[j]=parseInt(temp);
+                }
+            }
+        }
+
+        for(var i=0; i<5; i++)
+        {
+            document.write("Numero en la posicion: " + i + " Es: " + miarray[i] + "</br>");
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

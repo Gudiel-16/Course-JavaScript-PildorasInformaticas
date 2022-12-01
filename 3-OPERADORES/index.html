@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/micss2.css">
+
+    <script>
+        var nombre=prompt("INTRODUCE TU NOMBRE:"); //pide un nombre
+        var apellido="GUDIEL";
+        var edad=prompt("INTRODUCE TU EDAD:");
+        var restando=prompt("CUANTOS ANIOS DESEAS QUITARTE?");
+        edad-=restando; //se le resta a edad
+    </script>
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <div class="header">
+            <p class="logo">Curso JavaScript Píldoras Informáticas</p>
+        </div>
+
+        <div class="contenido">
+            <div class="principal">
+                <h1>Jugando con las variables</h1>
+
+                <script>                    
+                    document.write("<p>"); //abrir un parrafo nuevo
+                    document.write(nombre + " " + apellido + "<br>" + "Te gustaria tener: " + edad + " anios");
+                    document.write("</p>");
+                </script>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

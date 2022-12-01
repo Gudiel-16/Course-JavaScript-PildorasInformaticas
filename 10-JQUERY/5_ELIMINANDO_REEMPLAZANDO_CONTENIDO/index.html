@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #banner
+        {
+            background-color: #f00;
+            width: 450px;
+            height: 300px;
+            position: absolute;
+            left: 400px;
+            top: 50px;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        img
+        {
+            float: left;
+            margin: 15px;
+            width: 350px;
+            height: 
+            200px;
+        }
+
+        #imagen1, #imagen2, #imagen3, #imagen4
+        {
+            float: left;
+            margin: 15px;
+            width: 350px;
+            height: 200px;
+            font-size: 36px;
+        }
+    </style>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+           /*var z=document.getElementById("cerrar"); //se almacena en z el elemento cerrar
+           z.addEventListener("click",cerrar_banner,false); //z esta a la escucha del evento click, cuando se produzca este evento llamara la funcion cerrar_banner*/
+          
+           //utilizando JQUERY (COMO ANUNCIO)
+           document.getElementById("cerrar").addEventListener("click",cerrar_banner,false); //se simplifica a comparacion de lo anterior
+
+           //document.getElementById("imagen1").addEventListener("click",carrito,false); //esto es para una imagen en particular
+
+           //haciendolo para todas las imagenes
+            var imagenes=document.querySelectorAll("#carrete img"); //apunta a todas las img que estan dentro de carrete, convierte como en array de img
+            
+            for(var i=0; i<imagenes.length; i++)
+            {
+                imagenes[i].addEventListener("click",carrito,false);
+            }          
+           
+        });
+
+        //utilizando remove
+        function cerrar_banner()
+        {
+            $("#banner").remove();
+        }
+
+        function carrito(e)
+        {
+            if(e.target==imagen1) //nos devuelve que imagen se selecciono
+            {
+                $("#imagen1").replaceWith("<div id='imagen1'>Agregado al carro</div>"); //sino se pone id='imagen1' ocurre error, porque elimina esa etiquta y luego cuando entre al if nuevamente tira error
+            }
+            else if(e.target==imagen2) //nos devuelve que imagen se selecciono
+            {
+                $("#imagen2").replaceWith("<div id='imagen2'>Agregado al carro</div>");
+            }
+            else if(e.target==imagen3) //nos devuelve que imagen se selecciono
+            {
+                $("#imagen3").replaceWith("<div id='imagen3'>Agregado al carro</div>");
+            }
+            if(e.target==imagen4) //nos devuelve que imagen se selecciono
+            {
+                $("#imagen4").replaceWith("<div id='imagen4'>Agregado al carro</div>");
+            }            
+        }
+        
+    </script>    
+
+</head>
+<body>
+
+    <div id="banner">
+        Banner de prueba
+        <p id="cerrar">Cerrar</p>
+    </div>
+
+    <div id="carrete">
+        <img src="Img/barsa.jpg" width="250" height="175" id="imagen1">
+        &nbsp;
+        <img src="Img/barsa.jpg" width="250" height="175" id="imagen2">
+        &nbsp;
+        <img src="Img/barsa.jpg" width="250" height="175" id="imagen3">
+        &nbsp;
+        <img src="Img/barsa.jpg" width="250" height="175" id="imagen4">
+    </div>
+    
+</body>
+</html>

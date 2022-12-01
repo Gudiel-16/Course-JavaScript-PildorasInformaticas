@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Alumnos</title>
+
+    <link href="css/micss.css" rel="stylesheet">
+
+    <!--enlazando la biblioteca JQUERY-->
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <!--enlazando a un scrip externo-->
+    <script src="Jquery/mijs.js"></script>
+
+    <!--scrip interno, puede ir en cualquier parte-->
+    <script>
+        document.write("HOLA MUNDO!");
+
+        //utilizando ya la libreria JQUERY, esto es para que la pagina carque de a poco en 3 segundos.
+        $(function()
+        {
+            $("body").hide().fadeIn(3000);
+        });
+        
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Hola alumnos</h1>
+
+    <p>Bienvenidos al curso de JavaScript de <span>Píldoras Informáticas</span></p>
+
+    <img src="imgs/arbol.jpg" width="35%">
+
+</body>
+</html>
+    

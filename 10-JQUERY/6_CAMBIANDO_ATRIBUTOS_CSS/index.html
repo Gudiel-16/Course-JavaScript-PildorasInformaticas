@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        .linkdestacacursos
+        {
+            /*background-color:#F00;*/
+            color: #F00;   
+            font-weight: bold;
+            margin-left: 25px;         
+        }
+        
+        a
+        {
+            display:block;
+            margin-bottom:20px;
+            font-size:24px;
+        }
+
+        table
+        {
+            text-align:center;
+            border:none;
+        }
+        
+        td
+        {
+            border:none;
+        }
+        
+        #contieneEnlaces 
+        {
+            position: absolute;
+            left: 31px;
+            top: 65px;
+            width: 400px;
+            height: 649px;
+            z-index: 1;
+            padding-top:100px;
+        }
+    </style>
+        
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+            //apunto a los enlaces externos (los que comienzas con https)
+            //$("a[href^='https://']").addClass("linkdestacacursos");
+
+            document.getElementById("cursos").addEventListener("click",resaltacuros,false); //agrega evento al boton
+
+            document.getElementById("informacion").addEventListener("click",resaltaejemplos,false); //agrega evento al boton
+
+            document.getElementById("cursosCheck").addEventListener("click",resaltacuros,false); //agrega evento al check
+
+            document.getElementById("informacionCheck").addEventListener("click",resaltaejemplos,false); //agrega evento al check
+
+            document.getElementById("cursosRadio").addEventListener("click",resaltacurosRadio,false); //agrega evento al radio
+
+            document.getElementById("informacionRadio").addEventListener("click",resaltaejemplosRadio,false); //agrega evento al radio
+
+        });
+
+        function resaltacuros()
+        {
+            //para los botones
+           // $(".ejemplos").removeClass("linkdestacacursos"); //quita estilos para que resalten los otros
+            //$(".cursos").addClass("linkdestacacursos");
+
+            $(".cursos").toggleClass("linkdestacacursos"); //hace lo mismo que lo anterior, en una sola linea..
+        }
+
+        function resaltaejemplos()
+        {
+            //para los botones
+            //$(".cursos").removeClass("linkdestacacursos"); //quita estilos para que resalten los otros
+            //$(".ejemplos").addClass("linkdestacacursos");
+
+            $(".ejemplos").toggleClass("linkdestacacursos"); //hace lo mismo que lo anterior, en una sola linea..
+        }
+
+        function resaltacurosRadio()
+        {
+            //para los radio (toggleClass no funciona en radio, porque no desactiva)
+            $(".ejemplos").removeClass("linkdestacacursos"); //quita estilos para que resalten los otros
+            $(".cursos").addClass("linkdestacacursos");
+
+        }
+
+        function resaltaejemplosRadio()
+        {
+            //para los radio (toggleClass no funciona en radio, porque no desactiva)
+            $(".cursos").removeClass("linkdestacacursos"); //quita estilos para que resalten los otros
+            $(".ejemplos").addClass("linkdestacacursos");
+
+        }
+    </script>
+        
+        
+</head>
+
+<body>
+        
+    <div id="contieneEnlaces">
+    
+        <a href="http://www.pildorasinformaticas.com" target="_blank" class="cursos">
+            Píldoras informáticas
+        </a><br>
+        
+        <a href="http://www.google.com" target="_blank" class="ejemplos">
+            Google
+        </a><br>
+        
+        <a href="https://www.youtube.com/user/pildorasinformaticas" target="_blank" class="cursos">
+            Píldoras informáticas YouTube
+        </a><br>
+        
+        <a href="remover_reemplazar.html" target="_blank" >
+            Remover y reemplazar
+        </a><br>
+        
+        <a href="https://news.google.es/" target="_blank" class="ejemplos">
+            Noticias google
+        </a><br>
+        
+        <a href="calculadora_arcaica.html" target="_blank">
+            Calculadora
+        </a>
+
+    </div>
+    
+    <table width="100%" border="1">
+        <tr>
+        <td>Cursos destacados&nbsp;&nbsp;<input type="button"  value="Cursos" id="cursos"></td>
+        <td>Cursos destacados&nbsp;&nbsp;<input type="checkbox"  value="Cursos" id="cursosCheck"></td>
+        <td>Cursos destacados&nbsp;&nbsp;<input type="radio" name="miradio"  value="Cursos" id="cursosRadio"></td>
+        </tr>
+        <tr>
+        <td>Información adicional&nbsp;&nbsp;<input type="button"  value="Información" id="informacion"></td>
+        <td>Información adicional&nbsp;&nbsp;<input type="checkbox"  value="Información" id="informacionCheck"></td>
+        <td>Información adicional&nbsp;&nbsp;<input type="radio" name="miradio" value="Información" id="informacionRadio"></td>
+        </tr>
+    </table>                   
+        
+</body>
+</html>
+        

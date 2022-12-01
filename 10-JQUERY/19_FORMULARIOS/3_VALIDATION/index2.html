@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios I</title>
+
+    <style>
+
+        body
+        {
+            background-color:#FFC;
+        }
+
+        #principal
+        {
+            
+            padding:10px 10px 10px 50px;
+            background-color:#F93;	
+            box-shadow: 10px 10px 5px 0px #999999;
+            border-radius: 10px;
+        }
+
+        td
+        {
+            padding-bottom:25px;
+        }
+
+        h1
+        {
+            text-align:center;
+        }
+
+        /*Para dar formato a los errores tipo label*/
+        label.error
+        {
+            color:blue;
+        }
+
+        /*Para dar fotmato a los errores tipo input*/
+        input.error
+        {
+            border: 2px dotted cornflowerblue;
+        }
+
+    </style>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+    <script src="Validation/jquery_validate_1.13.1.js"></script>
+
+    <script>
+
+        $(document).ready(function() 
+        {
+            //en la etiqueta hay que poner 'requerid' para que funcione
+            $("#form_datos").validate
+            (
+                {
+                    rules://reglas
+                    {
+                        nombre:"required",
+                        apellido:"required",
+                        f_nacimiento://tiene varias reglas por eso las llaves
+                        {
+                            date:true, //tipo fecha
+                            required:true //obligatorio
+                        },
+                        edad:
+                        {
+                            number:true, //validacion numerica
+                            range:[1,105] //rango de 1-105
+                        },
+                        mail:"email",
+                        p_web:"url"
+                    },
+
+                    messages: //mensajes
+                    {
+                        nombre:"Obligatorio",
+                        apellido:"Obligatorio",
+                        f_nacimiento:
+                        {
+                            required:"Obligatorio", //cuando el error sea requerid, muestra este mensaje
+                            date:"Formato no valido" //cuando el error sea date, muestra este msj
+                        },
+                        edad:
+                        {
+                            number:"Debe ser numerico",
+                            range:"Entre 1 y 105"
+                        },
+                        mail:"E-mail incorrecto",
+                        p_web:"http://www........."
+                    }
+                }
+            );
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1>Envío de datos</h1>
+    <div id="contenedor">
+        <form id="form_datos">
+            <table width="25%" border="0" align="center" id="principal">
+                <tr>
+                    <td>Nombre:</td>
+                    <td><label for="nombre"></label>
+                    <input type="text" name="nombre" id="nombre"></td> 
+                </tr>
+                <tr>
+                    <td>Apellidos:</td>
+                    <td><input type="text" name="apellido" id="apellido"></td> 
+                </tr>
+                <tr>
+                    <td>Fecha Nacimiento</td>
+                    <td><label for="f_nacimiento"></label>
+                    <input type="text" name="f_nacimiento" id="f_nacimiento"></td>
+                </tr>
+                <tr>
+                    <td>Edad:</td>
+                    <td><input name="edad" type="edad" id="edad" size="4"></td>
+                </tr>
+                <tr>
+                    <td>Código Postal:</td>
+                    <td><label for="c_postal"></label>
+                    <input type="text" name="c_postal" id="c_postal"></td> 
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><label for="mail"></label>
+                    <input type="text" name="mail" id="mail"></td>
+                </tr>
+                <tr>
+                    <td>Página web:</td>
+                    <td><label for="p_web"></label>
+                    <input type="text" name="p_web" id="p_web"></td>
+                </tr>               
+                <tr>
+                    <td><p>País:</p></td>
+                    <td><p>
+                        <label for="pais"></label>
+                        <select name="pais" id="pais">
+                            <option>España</option>
+                            <option>México</option>
+                            <option>Colombia</option>
+                            <option>Perú</option>
+                            <option>Chile</option>
+                            <option>Argentina</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Enviar" id="comprobar"></td>            
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id="las_aficiones"></div>
+</body>
+</html>

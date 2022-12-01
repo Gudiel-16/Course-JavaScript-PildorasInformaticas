@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+            //mas comodo ponerlo asi que en una sola linea
+            $("#anuncio").width(500)
+            .height(500)
+            .text("VENDE!")
+            .hide() //oculta
+            .fadeIn(10000); //muestra poco a poco
+        });
+    </script>
+
+    <style>
+        #anuncio
+        {
+            background-color: #000;
+            color: #fff;
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div id="anuncio">
+        !COMPRA!
+    </div>
+
+    <!--<script>
+        var anuncio=document.getElementById("anuncio");
+        anuncio.style.width="500px";
+        anuncio.style.height="500px";
+        anuncio.innerHTML="!VENDE!";
+    </script>-->
+
+</body>
+</html>

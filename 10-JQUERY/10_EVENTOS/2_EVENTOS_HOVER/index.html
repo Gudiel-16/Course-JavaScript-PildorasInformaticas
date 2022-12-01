@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento sin título</title>
+
+    <style>
+
+        #imagenes
+        {
+            width:1475px;
+            margin:auto;            
+        }
+
+        img
+        {
+            padding:20px 30px;
+        }
+
+        #mensaje_img1 
+        {
+            position: absolute;
+            left: 500px;
+            top: 392px;
+            width: 581px;
+            height: 215px;
+            background-color: #FF9;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 25px;
+            border: dotted 2px #00F;
+        }
+    </style>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+
+        /*//PRIMERA FORMA
+        $(document).ready(function()
+        {
+            $("#mensaje_img1").hide(); //hide oculta
+            $("#imagen1").hover(mensaje_on,mensaje_off); //hover llama dos funciones
+        });
+
+        function mensaje_on()
+        {
+            $("#mensaje_img1").show(); //show muestra el elemento
+        }
+
+        function mensaje_off()
+        {
+            $("#mensaje_img1").hide(); // hide oculta
+        }
+        */
+
+        //USANDO FUNCIONES ANONIMAS
+        $(document).ready(function()
+        {
+            $("#mensaje_img1").hide(); //hide oculta
+            $("#imagen1").hover //hover llama dos funciones
+            ( 
+                function()
+                {
+                    $("#mensaje_img1").show(); //show muestra el elemento
+                },
+                function()
+                {
+                    $("#mensaje_img1").hide(); // hide oculta
+                }            
+            ); 
+        });
+
+    </script>
+</head>
+
+    <body>
+
+    <div id="mensaje_img1">Preciosa encina en mitad de la meseta castellana......</div>
+    
+    <div id="imagenes">
+        <img src="img/barsa1.jpg" id="imagen1">
+        <img src="img/barsa2.jpg" id="imagen2">
+        <img src="img/barsa3.jpg" id="imagen3">
+        <img src="img/barsa4.jpg" id="imagen4">
+    </div>
+</body>
+</html>

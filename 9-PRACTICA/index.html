@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento sin título</title>
+
+    <style>
+
+        
+
+        table
+        {
+            margin:auto;
+        }
+
+        .color_display
+        {
+            height:80px;
+            background-color:#000;
+            border:medium #FFF;
+            font: "Space Age";
+            color:#0F0;
+            font-size:30px;
+            text-align:right;
+            padding:5px;
+        }
+
+    </style>
+
+    <script>
+        var cifra="";
+        var acumulado=0; //sera el resultado final
+        var p_operacion=true;
+        var boolSumar=false;
+        var boolRestar=false;
+        var boolMultiplicar=false;
+        var boolDividir=false;
+
+        function displayNumeros(valor)
+        {
+            document.getElementById("display").value=cifra+valor; //display es el name del text donde ira mostrando los valores, aqui es para ir concatenando valores
+            cifra=document.getElementById("display").value; //aqui es el nuevo valor que hay en el text llamado display, eje... 1 , 34 , 12340 
+        }
+
+        function displaypunto(valor)
+        {
+            document.getElementById("display").value=cifra+valor; //display es el name del text donde ira mostrando los valores, aqui es para ir concatenando valores
+            cifra=document.getElementById("display").value; //aqui es el nuevo valor que hay en el text llamado display, eje... 1 , 34 , 12340 
+        }
+
+        function suma()
+        {
+            if(boolRestar) //por lo ultimo que hicimos es restar
+            {
+                acumulado=acumulado - parseFloat(cifra); 
+                document.getElementById("display").value=acumulado;
+            }
+            else if(boolMultiplicar) //por lo ultimo que hicimos es multiplicar
+            {
+                acumulado=acumulado * parseFloat(cifra); 
+                document.getElementById("display").value=acumulado;
+            }
+            else if(boolDividir) //por lo ultimo que hicimos es dividir
+            {
+                acumulado=acumulado / parseFloat(cifra);
+                document.getElementById("display").value=acumulado;
+            }
+            else
+            {
+                acumulado=acumulado + parseFloat(cifra); 
+                document.getElementById("display").value=acumulado;
+            }
+            
+            cifra=""; //reseteo
+            boolSumar=true;
+            boolRestar=false;
+            boolMultiplicar=false;
+        }
+
+        function resta()
+        {
+            if(p_operacion==false) //al principio hay un cero enla pantalla, y eso hace que se vuelva negativo
+            {            
+                if(boolSumar) //por lo ultimo que hicimos es sumar
+                {
+                    acumulado=acumulado + parseFloat(cifra); 
+                    document.getElementById("display").value=acumulado;
+                }
+                else if(boolMultiplicar) //por lo ultimo que hicimos es multiplicar
+                {
+                    acumulado=acumulado * parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+                else if(boolDividir) //por lo ultimo que hicimos es dividir
+                {
+                    acumulado=acumulado / parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+                else
+                {
+                    acumulado=acumulado - parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+            }
+            else
+            {
+                acumulado=parseFloat(cifra);
+                p_operacion=false;
+            }
+            
+            cifra=""; //reseteo
+            boolSumar=false;
+            boolRestar=true;
+            boolMultiplicar=false;
+        }
+
+        function multiplicar()
+        {
+            if(p_operacion==false)
+            {
+                if(boolRestar) //por lo ultimo que hicimos es restar
+                {
+                    acumulado=acumulado - parseFloat(cifra); 
+                    document.getElementById("display").value=acumulado;
+                }
+                else if(boolSumar) //por lo ultimo que hicimos es sumar
+                {
+                    acumulado=acumulado + parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+                else if(boolDividir) //por lo ultimo que hicimos es dividir
+                {
+                    acumulado=acumulado / parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+                else
+                {
+                    acumulado=acumulado * parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+            }
+            else
+            {
+                acumulado=parseFloat(cifra);
+                p_operacion=false;
+            }            
+
+            cifra=""; //reseteo
+            boolMultiplicar=true;
+            boolSumar=false;
+            boolRestar=false;
+        }
+
+        function dividir()
+        {
+            if(p_operacion==false)
+            {
+                if(boolRestar) //por lo ultimo que hicimos es restar
+                {
+                    acumulado=acumulado - parseFloat(cifra); 
+                    document.getElementById("display").value=acumulado;
+                }
+                else if(boolSumar) //por lo ultimo que hicimos es sumar
+                {
+                    acumulado=acumulado + parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+                else if(boolMultiplicar) //por lo ultimo que hicimos es multiplicar
+                {
+                    acumulado=acumulado * parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+                else
+                {
+                    acumulado=acumulado / parseFloat(cifra);
+                    document.getElementById("display").value=acumulado;
+                }
+            }
+            else
+            {
+                acumulado=parseFloat(cifra);
+                p_operacion=false;
+            }            
+
+            cifra=""; //reseteo
+            boolDividir=true;
+            boolSumar=false;
+            boolRestar=false;
+            boolMultiplicar=false;
+        }
+
+        function resultado()
+        {
+            if(boolSumar)
+            {
+                document.getElementById("display").value=acumulado + parseFloat(cifra);
+            }
+            else if(boolRestar)
+            {
+                document.getElementById("display").value=acumulado - parseFloat(cifra);
+            }
+            else if(boolMultiplicar)
+            {
+                document.getElementById("display").value=acumulado * parseFloat(cifra);
+            }
+            else if(boolDividir)
+            {
+                document.getElementById("display").value=acumulado / parseFloat(cifra);
+            }
+
+            acumulado=parseFloat(document.getElementById("display").value); //acumulado sera lo que aparece en pantalla
+            cifra=0;
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <table width="15%" border="1">
+        <tr>
+            <td colspan="4" align="center">
+                <input name="display" type="text" class="color_display" id="display" size="25">
+            </td>
+        </tr>
+        <tr>
+            <td width="25%"><input name="button" type="button" class="numero" id="sum" value="+" onclick="suma()"></td>
+            <td width="25%"><input name="button2" type="button" class="numero" id="rest" value="-" onclick="resta()"></td>
+            <td width="25%"><input name="button3" type="button" class="numero" id="mult" value="*" onclick="multiplicar()"></td>
+            <td width="25%"><input name="button4" type="button" class="numero" id="divi" value="/" onclick="dividir()"></td>
+        </tr>
+        <tr>
+            <td><input name="num7" type="button" class="numero" id="num7" value="7" onclick="displayNumeros(7)"></td>
+            <td><input name="num8" type="button" class="numero" id="num8" value="8" onclick="displayNumeros(8)"></td>
+            <td><input name="num9" type="button" class="numero" id="num9" value="9" onclick="displayNumeros(9)"></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="num4" type="button" class="numero" id="num4" value="4" onclick="displayNumeros(4)"></td>
+            <td><input name="num5" type="button" class="numero" id="num5" value="5" onclick="displayNumeros(5)"></td>
+            <td><input name="num6" type="button" class="numero" id="num6" value="6" onclick="displayNumeros(6)"></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="num1" type="button" class="numero" id="num1" value="1" onclick="displayNumeros(1)"></td>
+            <td><input name="num2" type="button" class="numero" id="num2" value="2" onclick="displayNumeros(2)"></td>
+            <td><input name="num3" type="button" class="numero" id="num3" value="3" onclick="displayNumeros(3)"></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><input name="num0" type="button" class="numero" id="num0" value="0" onclick="displayNumeros(0)"></td>
+            <td><input name="punto" type="button" class="numero" id="punto" value="." onclick="displaypunto('.')"></td>
+            <td colspan="2"><input name="button12" type="button" class="igual" id="igual" value="=" onclick="resultado()"></td>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById("display").value=0; //para que salga un cero al principio
+
+        
+
+        var botonSuma=document.getElementById("sum");
+        botonSuma.style.width="107px";
+        botonSuma.style.height="80px";
+        botonSuma.style.fontSize="50px";
+
+        var botonRest=document.getElementById("rest");
+        botonRest.style.width="107px";
+        botonRest.style.height="80px";
+        botonRest.style.fontSize="50px";
+
+        var botonMult=document.getElementById("mult");
+        botonMult.style.width="107px";
+        botonMult.style.height="80px";
+        botonMult.style.fontSize="50px";
+
+        var botonSDiv=document.getElementById("divi");
+        botonSDiv.style.width="107px";
+        botonSDiv.style.height="80px";
+        botonSDiv.style.fontSize="50px";
+
+        var botonNum0=document.getElementById("num0");
+        botonNum0.style.width="107px";
+        botonNum0.style.height="80px";
+        botonNum0.style.fontSize="50px";
+
+        var botonNum1=document.getElementById("num1");
+        botonNum1.style.width="107px";
+        botonNum1.style.height="80px";
+        botonNum1.style.fontSize="50px";
+
+        var botonNum2=document.getElementById("num2");
+        botonNum2.style.width="107px";
+        botonNum2.style.height="80px";
+        botonNum2.style.fontSize="50px";
+
+        var botonNum3=document.getElementById("num3");
+        botonNum3.style.width="107px";
+        botonNum3.style.height="80px";
+        botonNum3.style.fontSize="50px";
+
+        var botonNum4=document.getElementById("num4");
+        botonNum4.style.width="107px";
+        botonNum4.style.height="80px";
+        botonNum4.style.fontSize="50px";
+
+        var botonNum5=document.getElementById("num5");
+        botonNum5.style.width="107px";
+        botonNum5.style.height="80px";
+        botonNum5.style.fontSize="50px";
+
+        var botonNum6=document.getElementById("num6");
+        botonNum6.style.width="107px";
+        botonNum6.style.height="80px";
+        botonNum6.style.fontSize="50px";
+
+        var botonNum7=document.getElementById("num7");
+        botonNum7.style.width="107px";
+        botonNum7.style.height="80px";
+        botonNum7.style.fontSize="50px";
+
+        var botonNum8=document.getElementById("num8");
+        botonNum8.style.width="107px";
+        botonNum8.style.height="80px";
+        botonNum8.style.fontSize="50px";
+
+        var botonNum9=document.getElementById("num9");
+        botonNum9.style.width="107px";
+        botonNum9.style.height="80px";
+        botonNum9.style.fontSize="50px";
+
+        var botonPunto=document.getElementById("punto");
+        botonPunto.style.width="107px";
+        botonPunto.style.height="80px";
+        botonPunto.style.fontSize="50px";
+
+        var botonIgual=document.getElementById("igual");
+        botonIgual.style.width="220px";
+        botonIgual.style.height="80px";
+        botonIgual.style.fontSize="50px";
+
+        
+
+    </script>
+
+</body>
+</html>

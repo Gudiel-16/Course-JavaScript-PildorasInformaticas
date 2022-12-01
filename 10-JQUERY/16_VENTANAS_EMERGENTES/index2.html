@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento sin título</title>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+        /*
+        //ventana emergente
+        //link que quiero que abra, nombre cualquiera (unico para cada open), ancho, alto, margen izquiero y superior de la ventana
+        var propiedades="width=300, height=200, left=300, top=300";
+        open("http://www.pildorasinformaicas.es","pildoras",propiedades);
+        */
+
+        $(document).ready(function()
+        {
+            var propiedades="width=300, height=200, left=300, top=300";
+            var ventanaEmergente=open("http://www.pildorasinformaicas.es","pildoras",propiedades);
+            $("#botonCerrar").click
+            (
+                function(e)
+                {
+                    e.preventDefault(); //quita comportamiento de un vinculo, para que la deje cerrar
+                    ventanaEmergente.close();//cierra la ventana emergente
+                }
+            );//fin click
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+    <a href="http://www.pildorasinformaticas.es">Ir a Píldoras</a>
+    <br><br><br>
+    <a href="" id="botonCerrar">Cerrar</a>
+</body>
+</html>

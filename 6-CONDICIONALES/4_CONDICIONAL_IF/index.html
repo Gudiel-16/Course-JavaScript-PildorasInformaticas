@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var num1=prompt("Introduce el primer numero:");
+        var num2=prompt("Introduce el segundo numero:");
+
+        if(isNaN(num1) || isNaN(num2)) //si no estan vacios o en blanco o no son numeros
+        {
+            var op=prompt("Que operacion? + , - , / , *");
+
+            if(op=="+")
+            {
+                //typeof(num1); tipo de dato de una variable
+                var resultado=parseInt(num1)+parseInt(num2);
+                alert("Su respuesta es: " + resultado);
+            } 
+            else if(op=="-")
+            {
+                var resultado=parseInt(num1)-parseInt(num2);
+                alert("Su respuesta es: " + resultado);
+            }
+            else if(op=="/")
+            {
+                var resultado=parseInt(num1)/parseInt(num2);
+                alert("Su respuesta es: " + resultado);
+            }
+            else if(op=="*")
+            {
+                var resultado=parseInt(num1) * parseInt(num2);
+                alert("Su respuesta es: " + resultado);
+            }
+            else
+            {
+                alert("Se produjo un error");
+            }
+        }
+        else
+        {
+            alert("se produjo un error");
+        }
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

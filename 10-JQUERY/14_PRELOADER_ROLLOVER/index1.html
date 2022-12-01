@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Documento sin título</title>    
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+
+        //FUNCIONAMIENTO: CUANDO YA ESTA CARGADA LA IMAGEN ORIGINAL ES PORQUE LA DE SUSTITUCION ESTA CARGADA
+        $(document).ready(function() 
+        {	
+            var foto_nueva=new Image(); //variable tipo image
+            foto_nueva.src="imgs/1.jpg"; //le damos ruta a la imagen	
+
+            $("#foto").hover
+            (
+                function()
+                {
+                    
+                    $(this).attr("src",foto_nueva.src);
+                    
+                }
+                ,
+                function()
+                {
+                    
+                    $(this).attr("src","imgs/imgs2/1.jpg");			
+                }
+            );	
+            
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <img src="imgs/imgs2/1.jpg" width="300" height="200" id="foto">
+
+</body>
+</html>

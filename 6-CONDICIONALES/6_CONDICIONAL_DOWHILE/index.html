@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var aleatorio=Math.round(Math.random()*100); //numero de 1 a 100, pero lo redondea
+        var minum, intentos;
+        minum=0;
+        intentos=0;
+
+        do
+        {
+            minum=prompt("Introduce un numero entre 0 y 100");
+
+            if(aleatorio>minum)
+            {
+                alert("Mas alto");
+            }
+
+            if(aleatorio<minum)
+            {
+                alert("Mas Bajo");
+            }
+
+            intentos++;
+
+        }while(aleatorio!=minum);
+
+        alert("correcto! has consumido: "+intentos+" intentos.");
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

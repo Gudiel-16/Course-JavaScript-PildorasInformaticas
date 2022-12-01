@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+        $(document).ready(function()
+        {
+            $("#carrete img").hide(); //oculta los elementos, img dentro de carrete
+        });
+    </script>
+
+    
+
+</head>
+<body>
+    <div id="carrete">
+        <img src="Img/barsa.jpg" width="250" height="175">
+        &nbsp;
+        <img src="Img/barsa.jpg" width="250" height="175">
+        &nbsp;
+        <img src="Img/barsa.jpg" width="250" height="175">
+        &nbsp;
+        <img src="Img/barsa.jpg" width="250" height="175">
+    </div>
+    
+    <!--<script>
+        //se almacenan en la variable todas las img (se convierte en un array de img)
+        var imagenes=document.querySelectorAll("#carrete img"); //todas las img dentro de carrete
+
+        for(var i=0; i<imagenes.length; i++)
+        {
+            imagenes[i].style.visibility="hidden";
+        }
+
+    </script>-->
+
+</body>
+</html>

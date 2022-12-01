@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        img
+        {
+            opacity:0.5;
+        }
+
+    </style>
+
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() 
+        {
+            /*//ANIMACION, SE DESLIZA HACIA LA DERECHA
+            $("#imagen").click
+            (
+                function()
+                {
+                    $(this).animate
+                    (
+                        {
+                        marginLeft:"+=100px"
+                        }
+                        ,
+                        500
+                    );                    
+                }
+            )
+            */
+
+            //AL TENER EL MOUSE ENCIMA
+            $("img").mouseover(
+                function()
+                {
+                    $(this).animate
+                    (
+                        {
+                            opacity:1 //como no es pixel, no es necesario comillas
+                        }
+                        ,
+                        250
+                    );
+                }
+            )
+
+            //AL QUITAR EL MOUSE DE ENCIMA
+            $("img").mouseout(
+                function()
+                {
+                    $(this).animate
+                    (
+                        {
+                            opacity:0.5 //como no es pixel, no es necesario comillas
+                        }
+                        ,
+                        250
+                    );
+                }
+            )
+
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+    <img src="img/carrito.jpg" width="300" height="200" id="imagen">
+</body>
+</html>
+        
